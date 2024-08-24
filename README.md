@@ -52,6 +52,8 @@ Section 2: JavaScript Refresher: \Mohammad\Hala\sally\YCasmin
 
 2.25 Module Resources
 
+# Coding Exercises
+
 Coding Exercise 1: Exercise: Working with Functions
 
 Coding Exercise 2: Exercise: Array Methods

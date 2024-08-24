@@ -3,6 +3,7 @@
 Section 4: React Essentials - Deep Dive:
 
 4.1 Module Introduction
+
 4.2 You Don't Have To Use JSX!
 4.3 Working with Fragments
 4.4 When Should You Split Components?

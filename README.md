@@ -44,7 +44,7 @@ Section 3: React Essentials - Components, JSX, Props, State & More:
 
 3.21 Module Summary
 
-#Coding Exercises:
+# Coding Exercises:
 
 Coding Exercise 3: Building & Using a Component
 

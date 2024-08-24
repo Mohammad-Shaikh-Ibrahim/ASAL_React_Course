@@ -50,4 +50,37 @@ Section 4: React Essentials - Deep Dive:
 
 4.24 Avoid Intersecting States!
 
-4.25 Prefer Computed Values & Avoid Unnecessary State Management‌
+4.25 Prefer Computed Values & Avoid Unnecessary State Management
+
+4.26 Deriving State From Props
+
+4.27 Sharing State Across Components
+
+4.28 Reducing State Management & Identifying Unnecessary State
+
+4.29 Disabling Buttons Conditionally
+
+4.30 Lifting Computed Values Up
+
+4.31 Deriving Computed Values From Other Computed Values
+
+4.32 Why Immutability Matters - Always!
+
+4.33 When NOT To Lift State Up
+
+4.34 An Alternative To Lifting State Up
+
+4.35  Final Polishing & Improving Components
+
+
+# Coding Exercises
+
+Coding Exercise 13: Using Fragments
+
+Coding Exercise 14: Forwarding Props
+
+Coding Exercise 15: Creating Flexible Components
+
+Coding Exercise 16: Two-Way-Binding
+
+

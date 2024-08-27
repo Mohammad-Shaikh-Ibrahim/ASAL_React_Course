@@ -1,5 +1,7 @@
 # ASAL_React_Course
 
+Section 5: React Essentials-Practice Project
+
 5.1 Module Introduction & A Challenge For You!
 
 5.2 Adding a Header Component

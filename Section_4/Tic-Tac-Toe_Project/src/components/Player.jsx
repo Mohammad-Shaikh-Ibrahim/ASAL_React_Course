@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({initialName ,symbol,isActive}){
+export default function Player({initialName ,symbol,isActive,onChangeName}){
     const [playerName,setPlayerName]= useState(initialName)
     const [isEditing,setIsEditing]= useState(false);
     
@@ -9,6 +9,10 @@ export default function Player({initialName ,symbol,isActive}){
         // setIsEditing(isEditing ? false :true) this way is correct but the next way is easier
         // setIsEditing(!isEditing) but in these ways we cant update the value so we want a function to update it
         setIsEditing((editing)=>!editing)//best practice for update
+        if(isEditing){
+            onChangeName(symbol,playerName)
+        }
+        
     }
 
     function handelChange(event){

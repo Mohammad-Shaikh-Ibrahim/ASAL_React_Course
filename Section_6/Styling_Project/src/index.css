@@ -38,7 +38,8 @@ button:focus {
   color: white;
 }
 
-.controls {
+/* we replaced it with styled components */
+/* .controls {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -74,7 +75,7 @@ input.invalid {
   color: #ef4444;
   border-color: #f73f3f;
   background-color: #fed2d2;
-}
+} */
 
 .actions {
   display: flex;

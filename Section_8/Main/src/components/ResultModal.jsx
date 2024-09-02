@@ -24,7 +24,7 @@ import { createPortal } from "react-dom";
             <button>Close</button>
         </form>
     </dialog>,
-    document.getElementById('model')
+    document.getElementById('modal')
     );
 })
 

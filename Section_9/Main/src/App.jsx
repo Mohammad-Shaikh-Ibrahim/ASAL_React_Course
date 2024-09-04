@@ -8,8 +8,29 @@ import SelectedProject from "./components/SelectedProject";
 function App() {
   const [projectsState,setProjectsState]= useState({
     selectedProjectId: undefined,
-    projects: []
+    projects: [],
+    tasks: []
   })
+
+  function handleAddTask(text){
+    setProjectsState((prevState) => {
+      const taskId= Math.random();
+      const newTask= {
+       text: text,
+       projectId:prevState.selectedProjectId,
+       id: taskId
+      };
+
+      return{
+        ...prevState,
+        tasks: [newTask,...prevState.tasks]
+      };
+    });
+  }
+
+  function handleDleteTask(){
+
+  }
 
   function handleSelectProject(id){
     setProjectsState((prevState) => {
@@ -68,7 +89,13 @@ function App() {
   const selectedProject= projectsState.projects.find(
     (project)=> project.id === projectsState.selectedProjectId);
   let content = (
-  <SelectedProject project={selectedProject} onDelete={handleDeleteproject}/>
+    <SelectedProject 
+    project={selectedProject} 
+    onDelete={handleDeleteproject}
+    onAddTask={handleAddTask}
+    onDeleteTask={handleDleteTask}
+    tasks={projectsState.tasks}
+  />  
   );
 
   if(projectsState.selectedProjectId === null){

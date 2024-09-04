@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProjectsSidebar from "./components/ProjectsSidebar";
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
+import SelectedProject from "./components/SelectedProject";
 
 
 function App() {
@@ -9,6 +10,15 @@ function App() {
     selectedProjectId: undefined,
     projects: []
   })
+
+  function handelSelectProject(id){
+    setProjectsState((prevState) => {
+      return{
+        ...prevState,
+        selectedProjectId: id,
+      }
+    });
+  }
 
   function handelStartAddProject(){
     setProjectsState((prevState) => {
@@ -30,10 +40,10 @@ function App() {
 
   function handelAddProject(projectData){
     setProjectsState((prevState) => {
-      // const projectId= Math.random();
+      const projectId= Math.random();
       const newProject= {
        ...projectData,
-       id:  Math.random()
+       id: projectId
       };
 
       return{
@@ -43,8 +53,8 @@ function App() {
       };
     });
   }
-
-  let content;
+  const selectedProject= projectsState.projects.find(project=> project.id === projectsState.selectedProjectId);
+  let content = <SelectedProject project={selectedProject}/>;
 
   if(projectsState.selectedProjectId === null){
     content= <NewProject onAdd={handelAddProject} onCanel={handelCanelAddProject}/>
@@ -56,7 +66,9 @@ function App() {
     <main className="h-screen my-8 flex gap-8 ">
      <ProjectsSidebar 
      onStartAddProject={handelStartAddProject} 
-     projects={projectsState.projects}/>
+     projects={projectsState.projects}
+     onSelectProject={handelSelectProject}
+     />
      {content}
     </main>
   );

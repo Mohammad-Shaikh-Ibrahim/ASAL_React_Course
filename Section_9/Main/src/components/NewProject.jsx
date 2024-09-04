@@ -1,14 +1,14 @@
 import{useRef} from 'react'
 import Input from "./Input"
 export default function NewProject({onAdd}){
-    const title=useRef();
-    const description=useRef();
-    const dueDate=useRef();
+    const title= useRef();
+    const description= useRef();
+    const dueDate= useRef();
 
     function handelSave(){
-        const enteredTitle= title.target.value;
-        const entereDescription= description.target.value;
-        const enteredDueDate= dueDate.target.value;
+        const enteredTitle= title.current.value;
+        const entereDescription= description.current.value;
+        const enteredDueDate= dueDate.current.value;
 
         //validtion...
         onAdd({
@@ -27,8 +27,9 @@ export default function NewProject({onAdd}){
             </li>
             <li>
                 <button 
+                className="bg-stone-800 hover:bg-stone-950 px-6 py-2 rounded-md text-stone-50 "
                 onClick={handelSave}
-                className="bg-stone-800 hover:bg-stone-950 px-6 py-2 rounded-md text-stone-50 ">
+                >
                     Save
                 </button>
             </li>

@@ -11,39 +11,43 @@ function App() {
   })
 
   function handelStartAddProject(){
-    setProjectsState(prevState => {
+    setProjectsState((prevState) => {
       return{
         ...prevState,
-        selectedProjectId:null,
+        selectedProjectId: null,
       }
     });
   }
 
   function handelAddProject(projectData){
-    setProjectsState(prevState => {
+    setProjectsState((prevState) => {
+      // const projectId= Math.random();
       const newProject= {
        ...projectData,
-       id: Math.random(),
+       id:  Math.random()
       };
 
       return{
         ...prevState,
-        projects:[...prevState.projects,newProject],
+        selectedProjectId: undefined,
+        projects: [...prevState.projects,newProject],
       };
     });
   }
 
   let content;
 
-  if(projectsState.selectedProjectId===null){
+  if(projectsState.selectedProjectId === null){
     content= <NewProject onAdd={handelAddProject}/>
-  }else if(projectsState.selectedProjectId===undefined){
+  }else if(projectsState.selectedProjectId === undefined){
     content= <NoProjectSelected onStartAddProject={handelStartAddProject}/>
   }
 
   return (
     <main className="h-screen my-8 flex gap-8 ">
-     <ProjectsSidebar onStartAddProject={handelStartAddProject}/>
+     <ProjectsSidebar 
+     onStartAddProject={handelStartAddProject} 
+     projects={projectsState.projects}/>
      {content}
     </main>
   );

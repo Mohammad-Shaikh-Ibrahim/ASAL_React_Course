@@ -18,6 +18,15 @@ function App() {
       }
     });
   }
+  
+  function handelCanelAddProject(){
+    setProjectsState((prevState) => {
+      return{
+        ...prevState,
+        selectedProjectId: undefined,
+      }
+    });
+  }
 
   function handelAddProject(projectData){
     setProjectsState((prevState) => {
@@ -38,7 +47,7 @@ function App() {
   let content;
 
   if(projectsState.selectedProjectId === null){
-    content= <NewProject onAdd={handelAddProject}/>
+    content= <NewProject onAdd={handelAddProject} onCanel={handelCanelAddProject}/>
   }else if(projectsState.selectedProjectId === undefined){
     content= <NoProjectSelected onStartAddProject={handelStartAddProject}/>
   }

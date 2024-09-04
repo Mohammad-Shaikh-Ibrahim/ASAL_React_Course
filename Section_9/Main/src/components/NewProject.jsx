@@ -1,7 +1,7 @@
 import{useRef} from 'react'
 import Input from "./Input"
-import Modal from './Modal';
-export default function NewProject({onAdd}){
+import Modal from './Modal.jsx';
+export default function NewProject({onAdd,onCanel}){
     const modal= useRef();
     const title= useRef();
     const description= useRef();
@@ -17,6 +17,7 @@ export default function NewProject({onAdd}){
             enteredDueDate.trim() === '')
             {
                 modal.current.open();
+                return;
         }
         onAdd({
             title:enteredTitle,
@@ -30,14 +31,18 @@ export default function NewProject({onAdd}){
     return (
     <>
     <Modal ref={modal} buttonCaption="Okay">
-        <h2>Invalid Input</h2>
-        <p>Oops... Looks Like You Forget to Enter a Value. </p>
-        <p>Please Make Sure You Provide a Valid Value For Every Input Field. </p>
+        <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Input</h2>
+        <p className='text-stone-600 mb-4'>Oops... Looks Like You Forget to Enter a Value. </p>
+        <p className='text-stone-600 mb-4'>Please Make Sure You Provide a Valid Value For Every Input Field. </p>
     </Modal>
     <div className="w-[35rem] mt-16 ">
         <menu className="flex items-center justify-end gap-4 my-4">
             <li>
-                <button className="text-stone-800 hover:text-stone-950 ">Cancel</button>
+                <button className="text-stone-800 hover:text-stone-950 "
+                onClick={onCanel}
+                >
+                    Cancel
+                </button>
             </li>
             <li>
                 <button 

@@ -8,9 +8,7 @@ export default function QuestionTimer({timeout,onTimeOut}){
 
     useEffect(()=>{
         setInterval(()=>{
-            setRemainingTime((prevRemainingTime)=>{
-                prevRemainingTime - 100
-            })
+            setRemainingTime((prevRemainingTime)=>prevRemainingTime - 100)
         },100);
     },[])
 

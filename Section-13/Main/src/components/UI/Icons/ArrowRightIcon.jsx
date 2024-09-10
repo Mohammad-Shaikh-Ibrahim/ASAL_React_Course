@@ -1,5 +1,5 @@
 import { log } from '../../../log.js';
-
+// milion-ignore
 export default function ArrowRightIcon(props) {
   log('<ArrowRightIcon /> rendered', 3);
 

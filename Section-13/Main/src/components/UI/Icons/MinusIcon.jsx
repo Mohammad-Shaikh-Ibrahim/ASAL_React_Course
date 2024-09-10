@@ -1,5 +1,5 @@
 import { log } from '../../../log.js';
-
+// milion-ignore
 export default function MinusIcon(props) {
   log('<MinusIcon /> rendered', 3);
 

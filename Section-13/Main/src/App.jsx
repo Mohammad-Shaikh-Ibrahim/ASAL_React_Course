@@ -12,9 +12,10 @@ function App() {
 
   function handelSetCount(newCount){
     setChosenCount(newCount);
+    setChosenCount((prevChosenCount)=> prevChosenCount+1);
   }
   return (
-    <>
+    <> 
       <Header />
       <main>
         <ConfiguerCounter onSet={handelSetCount}/>

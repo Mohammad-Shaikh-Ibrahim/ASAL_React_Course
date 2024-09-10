@@ -19,7 +19,7 @@ export default function Quiz(){
     },[]);
 
     const handelSkipAnswer= useCallback(()=> 
-        ()=> handelSelectAnswer(null),[handelSelectAnswer]);
+        handelSelectAnswer(null),[handelSelectAnswer]);
 
 
     if(quizIsComplete){

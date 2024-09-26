@@ -16,6 +16,7 @@ const counterReducer = (state = initialState, action) => {
         // }
         // or you forget the showCounter: state.showCounter at every return 
         // ** So always Copy and Create New Objects Dont Forget any thing
+        // vist to this link https://academind.com/tutorials/reference-vs-primitive-values/
     }
     if (action.type === 'increase') {
         return {

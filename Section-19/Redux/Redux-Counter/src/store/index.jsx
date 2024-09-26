@@ -1,11 +1,11 @@
 //First Way (New Way)
-import { createSlice,configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { counter: 0, showCounter: true };
+const initialCounterState = { counter: 0, showCounter: true };
 
-const counterSlice=createSlice({
+const counterSlice = createSlice({
     name: 'counter',
-    initialState, //=>initialState: initialState
+    initialState:initialCounterState,
     reducers: {
         increment(state) {
             state.counter++;
@@ -24,11 +24,30 @@ const counterSlice=createSlice({
         },
     }
 });
+const initialAuthState={
+    isAuthenticated: false
+};
+const authSlice = createSlice({
+    name:'auth',
+    initialState:initialAuthState,
+    reducers:{
+        login(state){
+            state.isAuthenticated=true;
+        },
+        logout(state){
+            state.isAuthenticated=false;
+        },
+    }
+});
 
 const store = configureStore({
-    reducer: counterSlice.reducer
+    reducer: {
+        counter:counterSlice.reducer,
+        auth:authSlice.reducer
+    }
 });
-export const counterActions= counterSlice.actions;
+export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
 
 export default store;
 
@@ -48,7 +67,7 @@ export default store;
 //         //     counter: state.counter,
 //         //     showCounter: state.showCounter
 //         // }
-//         // or you forget the showCounter: state.showCounter at every return 
+//         // or you forget the showCounter: state.showCounter at every return
 //         // ** So always Copy and Create New Objects Dont Forget any thing
 //         // vist to this link https://academind.com/tutorials/reference-vs-primitive-values/
 //     }

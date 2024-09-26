@@ -8,6 +8,14 @@ const counterReducer = (state = initialState, action) => {
             counter: state.counter + 1,
             showCounter: state.showCounter
         };
+        //don't do this:
+        // state.counter++
+        // return{
+        //     counter: state.counter,
+        //     showCounter: state.showCounter
+        // }
+        // or you forget the showCounter: state.showCounter at every return 
+        // ** So always Copy and Create New Objects Dont Forget any thing
     }
     if (action.type === 'increase') {
         return {

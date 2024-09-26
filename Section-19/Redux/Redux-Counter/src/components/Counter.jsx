@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { counterActions } from '../store/index.jsx';
 import classes from './Counter.module.css';
 
 // Functional Components
@@ -9,20 +10,25 @@ const Counter = () => {
   const show = useSelector(state => state.showCounter)
 
   const handleIncrement = () => {
-    dispatch({ type: 'increment' });
+    // dispatch({ type: 'increment' });// this the old way so we will replace it:
+    dispatch(counterActions.increment())
   };
   const handleIncrease = () => {
-    dispatch({ type: 'increase', amount: 5 });
+    // dispatch({ type: 'increase', amount: 10 });
+    dispatch(counterActions.increase(10))//{type:SOME_UNIQUE_IDENTIFIER,payload:10}
   };
   const handleDecrement = () => {
-    dispatch({ type: 'decrement' });
+    // dispatch({ type: 'decrement' });
+    dispatch(counterActions.decrement())
   };
   const handleDecrease = () => {
-    dispatch({ type: 'decrease', amount: 5 });
+    // dispatch({ type: 'decrease', amount: 5 });
+    dispatch(counterActions.decrease(5))
   };
 
   const handleToggleCounter = () => {
-    dispatch({ type: 'toggle' });
+    // dispatch({ type: 'toggleCounter' });
+    dispatch(counterActions.toggleCounter())
   };
 
   return (
@@ -31,7 +37,7 @@ const Counter = () => {
      {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={handleIncrement}>Increment</button>
-        <button onClick={handleIncrease}>Increase By 5</button>
+        <button onClick={handleIncrease}>Increase By 10</button>
         <button onClick={handleDecrement}>Decrement</button>
         <button onClick={handleDecrease}>Decrease By 5</button>
       </div>

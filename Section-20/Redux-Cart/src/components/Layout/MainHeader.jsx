@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import CartButton from '../Cart/CartButton';
 import classes from './MainHeader.module.css';
 
-// eslint-disable-next-line no-unused-vars
 const MainHeader = (props) => {
   return (
     <header className={classes.header}>

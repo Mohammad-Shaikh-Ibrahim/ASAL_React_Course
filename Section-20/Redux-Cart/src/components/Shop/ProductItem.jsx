@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 

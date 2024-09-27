@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {

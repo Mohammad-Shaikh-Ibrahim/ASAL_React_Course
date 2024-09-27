@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import ProductItem from './ProductItem';
 import classes from './Products.module.css';
 

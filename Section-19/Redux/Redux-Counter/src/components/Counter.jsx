@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { counterActions } from '../store/index.jsx';
+import { counterActions } from '../store/counter.jsx';
 import classes from './Counter.module.css';
 
 // Functional Components

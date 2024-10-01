@@ -6,10 +6,12 @@ export default function Login() {
   // const [enteredPassword, setEnteredPassword] = useState('');
   // so we need a new solution for a General Case:
   const [enteredValues, setEnteredValues] = useState({
-    email:'',
-    password:'',
+    email: '',
+    password: '',
   });
 
+  const emailIsInvalid =
+    enteredValues.email !== '' && !enteredValues.email.includes('@');
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -26,10 +28,10 @@ export default function Login() {
   //   setEnteredPassword(event.target.value);
   // }
 
-  function handleInputChange(identifier,value){
-    setEnteredValues((prevValues)=>({
+  function handleInputChange(identifier, value) {
+    setEnteredValues((prevValues) => ({
       ...prevValues,
-      [identifier]:value,
+      [identifier]: value,
     }))
   }
 
@@ -44,9 +46,12 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onChange={(event)=> handleInputChange('email',event.target.value)}
+            onChange={(event) => handleInputChange('email', event.target.value)}
             value={enteredValues.email}
           />
+          <div className="control-error">
+            {emailIsInvalid && <p>Please Enter a Valid Email Address!</p>}
+          </div>
         </div>
 
         <div className="control no-margin">
@@ -55,7 +60,7 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={(event)=> handleInputChange('password',event.target.value)}
+            onChange={(event) => handleInputChange('password', event.target.value)}
             value={enteredValues.password}
           />
         </div>

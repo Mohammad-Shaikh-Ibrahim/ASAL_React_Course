@@ -1,36 +1,17 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 export default function Login() {
-  // Here if there a multiple input filed => there a complex useState
-  // const [enteredEmial, setEnteredEmail] = useState('');
-  // const [enteredPassword, setEnteredPassword] = useState('');
-  // so we need a new solution for a General Case:
-  const [enteredValues, setEnteredValues] = useState({
-    email:'',
-    password:'',
-  });
+
+  const email = useRef();
+  const password = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    //for test:
-    // console.log('User Email: ' + enteredEmial);
-    // console.log('User Password: ' + enteredPassword);
-    console.log(enteredValues);
-  }
+    const enteredEmial = email.current.value;
+    const enteredPassword = password.current.value;
 
-  // function handleEmailChange(event) {
-  //   setEnteredEmail(event.target.value);
-  // }
-  // function handlePasswordChange(event) {
-  //   setEnteredPassword(event.target.value);
-  // }
-
-  function handleInputChange(identifier,value){
-    setEnteredValues((prevValues)=>({
-      ...prevValues,
-      [identifier]:value,
-    }))
+    console.log(enteredEmial,enteredPassword);
   }
 
   return (
@@ -44,8 +25,7 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onChange={(event)=> handleInputChange('email',event.target.value)}
-            value={enteredValues.email}
+            ref={email}
           />
         </div>
 
@@ -55,8 +35,7 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={(event)=> handleInputChange('password',event.target.value)}
-            value={enteredValues.password}
+            ref={password}
           />
         </div>
       </div>

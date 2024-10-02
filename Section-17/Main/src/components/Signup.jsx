@@ -92,7 +92,7 @@ export default function Signup() {
                         id="google"
                         name="acquisition"
                         value="google"
-                        required
+
                     />
                     <label htmlFor="google">Google</label>
                 </div>
@@ -103,7 +103,7 @@ export default function Signup() {
                         id="friend"
                         name="acquisition"
                         value="friend"
-                        required
+
                     />
                     <label htmlFor="friend">Referred by friend</label>
                 </div>
